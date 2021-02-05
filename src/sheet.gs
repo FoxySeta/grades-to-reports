@@ -24,7 +24,7 @@ function transpose(m) {
 
 function getStudents(sheet) {
   return transpose(
-    sheet.getRange(firstRowIndex, firstColumnIndex,
+    sheet.getRange(firstStudentCell[0], firstStudentCell[1],
                    sheet.getLastRow() - firstStudentCell[0] + 1, sheet.getLastColumn() - firstStudentCell[1] + 1)
          .getDisplayValues()
   );
