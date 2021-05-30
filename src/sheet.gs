@@ -1,4 +1,6 @@
-const botSheetName = 'Bot',
+const inputSheetName = 'Ingresso',
+      botSheetName = 'Bot',
+      firstAnswerCell = [2, 1],
       templateIdCell = [2, 1],
       dataSheetName = 'Uscita',
       studentsGroupCell = [2, 1],
@@ -28,4 +30,9 @@ function getStudents(sheet) {
                    sheet.getLastRow() - firstStudentCell[0] + 1, sheet.getLastColumn() - firstStudentCell[1] + 1)
          .getDisplayValues()
   );
+}
+
+function sortByModuleID(sheet) {
+  sheet.getRange(firstAnswerCell[0], firstAnswerCell[1], sheet.getLastRow() - firstAnswerCell[0] + 1,
+  sheet.getLastColumn() - firstAnswerCell[1] + 1).sort({column: 2, ascending: true});
 }
