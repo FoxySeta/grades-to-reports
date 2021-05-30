@@ -39,6 +39,15 @@ function fillInDocuments() {
 }
 
 function onOpen() {
-  SpreadsheetApp.getUi().createAddonMenu()
-    .addItem('Fill in documents', 'fillInDocuments').addToUi();
+  const addonMenu = SpreadsheetApp.getUi().createAddonMenu();
+  addonMenu.addItem('Fill in documents', 'fillInDocuments').addToUi();
+  addonMenu.addItem('Sort modules', 'sortModules').addToUi();
+}
+
+function sortModules() {
+  sortByModuleID(SpreadsheetApp.getActiveSpreadsheet().getSheetByName(inputSheetName));
+}
+
+function onFormSubmit() {
+  sortModules();
 }
